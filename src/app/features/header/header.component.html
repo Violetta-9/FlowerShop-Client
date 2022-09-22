@@ -1,0 +1,58 @@
+<div #startStyle class="navigation-wrap bg-light start-header ms-0 me-0 d-flex start-style">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-md navbar-light">
+          <a class="position-relative" style="cursor: pointer;">
+            <img class="navbar-brand logo" #headerLogo src="/assets/flower.png" alt="">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-md-center justify-content-sm-start"
+               id="navbarSupportedContent">
+            <ul class="navbar-nav mt-10px">
+              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4" ngbDropdown>
+                <span class="nav-link dropdown-toggle" ngbDropdownToggle>Home</span>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                </div>
+              </li>
+              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4">
+                <a class="nav-link" href="#">About us</a>
+              </li>
+              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4" ngbDropdown>
+                <span class="nav-link dropdown-toggle" ngbDropdownToggle>Journal</span>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                </div>
+              </li>
+              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4">
+                <a class="nav-link" href="#">About delivery</a>
+              </li>
+              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="me-2 mt-1 mt-md-2 d-inline-flex">
+    <a  class="icon-size icon-container me-4" href="#">
+      <i class="fa fa-user-o"></i>
+    </a>
+  </div>
+</div>
