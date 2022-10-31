@@ -3,6 +3,11 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
+import { AdminService } from './api/admin.service';
+import { AdminProductImageService } from './api/adminProductImage.service';
+import { ProductService } from './api/product.service';
+import { ProductCategoruService } from './api/productCategoru.service';
+import { ProductImageService } from './api/productImage.service';
 import { UserService } from './api/user.service';
 
 @NgModule({
@@ -10,6 +15,11 @@ import { UserService } from './api/user.service';
   declarations: [],
   exports:      [],
   providers: [
+    AdminService,
+    AdminProductImageService,
+    ProductService,
+    ProductCategoruService,
+    ProductImageService,
     UserService ]
 })
 export class ApiModule {
