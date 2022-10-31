@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from "@angular/core";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {DialogData} from "../header/header.component";
+
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginComponent} from "../login/login.component";
 import {AddUserDTO, UserService} from "../../core/services/flower-shop";
@@ -21,7 +21,7 @@ export class RegistrationComponent extends EntityDetailsBaseComponent implements
 
   constructor(
     public dialogRef: MatDialogRef<RegistrationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+
     public dialog: MatDialog,
     public userService: UserService,
   ) {
