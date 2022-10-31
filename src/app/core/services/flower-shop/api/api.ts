@@ -1,3 +1,13 @@
+export * from './admin.service';
+import { AdminService } from './admin.service';
+export * from './adminProductImage.service';
+import { AdminProductImageService } from './adminProductImage.service';
+export * from './product.service';
+import { ProductService } from './product.service';
+export * from './productCategoru.service';
+import { ProductCategoruService } from './productCategoru.service';
+export * from './productImage.service';
+import { ProductImageService } from './productImage.service';
 export * from './user.service';
 import { UserService } from './user.service';
-export const APIS = [UserService];
+export const APIS = [AdminService, AdminProductImageService, ProductService, ProductCategoruService, ProductImageService, UserService];
