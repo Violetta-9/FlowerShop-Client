@@ -2,11 +2,9 @@ import {Component, ElementRef, Inject, OnInit} from '@angular/core';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {RegistrationComponent} from "../registration/registration.component";
 import {LoginComponent} from "../login/login.component";
+import {CategoriesDTO, ProductCategoruService, UserService} from "../../core/services/flower-shop";
+import jwt_decode from 'jwt-decode';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-header',
@@ -16,10 +14,13 @@ export interface DialogData {
 export class HeaderComponent implements OnInit{
   animal: string;
   name: string;
-  constructor(private elementRef: ElementRef,public dialog: MatDialog) {
+  categories: CategoriesDTO[];
+
+  constructor(private elementRef: ElementRef,public dialog: MatDialog,public categoriesService: ProductCategoruService) {
 
   }
   ngOnInit(): void {
+    this.getCategories();
     this.elementRef.nativeElement.querySelectorAll('.nav-item').forEach((element: any) => {
 
       element.addEventListener('mouseenter', (event: any) => {
@@ -44,6 +45,7 @@ export class HeaderComponent implements OnInit{
 
       });
     });
+
   }
   openRegisterDialog(){
     const dialogRef = this.dialog.open(RegistrationComponent, {
@@ -66,7 +68,11 @@ export class HeaderComponent implements OnInit{
     });
   }
 
-
+  getCategories(): void {
+    this.categoriesService.getAllCategories()
+      .subscribe(category => this.categories = category);
+    console.log(this.categories)
+  }
   title = 'FloweShop-Client';
   public isHidden: boolean=false;
 
