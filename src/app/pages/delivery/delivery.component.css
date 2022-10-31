@@ -1,0 +1,12 @@
+.forTitle{
+  font-family: "Marker Felt, fantasy" ;
+  font-weight: 600;
+  font-stretch: semi-expanded;
+  font-style: italic
+
+}
+.forText{
+  font-family: "Palatino, URW Palladio L, serif" ;
+  font-size: 1.2rem;
+  line-height: 1.5
+}
