@@ -10,11 +10,10 @@
  * Do not edit the class manually.
  */
 
-export interface AddUserDTO { 
-    login?: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    password?: string;
-    phoneNumber?: string;
+export interface Body { 
+    title?: string;
+    description?: string;
+    price?: number;
+    productCategoryId?: number;
+    images?: Array<Blob>;
 }
