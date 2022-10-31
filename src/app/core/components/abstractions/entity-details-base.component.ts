@@ -39,7 +39,7 @@ export abstract class EntityDetailsBaseComponent extends ComponentBase{
 
     return
     }
-    console.log(0)
+
     this.saveInternal();
   }
 
