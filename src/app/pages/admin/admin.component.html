@@ -1,1 +1,28 @@
-<p>admin works!</p>
+<div class="col-lg-12 row">
+  <div class="col-lg-4 ">
+<form class="example-form mt-3 ms-3" >
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Название букета</mat-label>
+    <input type="text"
+           placeholder="Введи название букета "
+           aria-label="Number"
+           matInput
+           name="someName"
+(click)="show()"
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title" >
+        {{option.title}}
+        <span class="pHidden" #variable>{{option.productId}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>
+  <button class="col-lg-3 ms-3" mat-raised-button color="primary" type="submit" (click)="find()">Найти</button>
+  </div>
+  <div *ngIf="isCompled" class=" col-lg-8">
+    <app-product-list-for-admin [productId]="productId">{{productId}}</app-product-list-for-admin>
+  </div>
+</div>
