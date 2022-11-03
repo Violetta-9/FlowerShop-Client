@@ -7,11 +7,13 @@ import {AboutUsComponent} from "./pages/about-us/about-us.component";
 import {AdminComponent} from "./pages/admin/admin.component";
 import {AuthGuard} from "./shared/services/AuthGuard";
 import {DonotAccessComponent} from "./pages/donot-access/donot-access.component";
+import {HomeComponent} from "./pages/home/home.component";
+import {ProductListComponent} from "./features/product-list/product-list.component";
 
 const routes: Routes = [
   { path: 'delivary', component: DeliveryComponent},
-  { path: 'home/:id', component: ProductComponent},
-  { path: 'home', component: ProductComponent},
+  { path: 'category/:id', component: ProductListComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'aboutUs', component: AboutUsComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   { path: 'donotAccess', component: DonotAccessComponent},
@@ -19,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),   CommonModule],
+  imports: [RouterModule.forRoot(routes), RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}),  CommonModule],
   exports: [RouterModule]
 })
 

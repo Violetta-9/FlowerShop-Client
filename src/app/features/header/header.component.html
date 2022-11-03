@@ -24,30 +24,15 @@
                 <a class="nav-link" routerLink="/aboutUs">{{'HEADER.ABOUTUS' | translate}}</a>
               </li>
 
-<!--              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4" ngbDropdown>-->
-<!--                <span class="nav-link dropdown-toggle" ngbDropdownToggle>{{'HEADER.JOURNAL'| translate }}</span>-->
-<!--                <div class="dropdown-menu">-->
-<!--                  <a class="dropdown-item" href="#">Action</a>-->
-<!--                  <a class="dropdown-item" href="#">Another action</a>-->
-<!--                  <a class="dropdown-item" href="#">Something else here</a>-->
-<!--                  <a class="dropdown-item" href="#">Another action</a>-->
-<!--                </div>-->
-<!--              </li>-->
 
               <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4" ngbDropdown>
                 <span class="nav-link dropdown-toggle" ngbDropdownToggle>{{'HEADER.JOURNAL'| translate }}</span>
                 <div class="dropdown-menu" >
-                  <a class="dropdown-item" *ngFor="let menuItem of categories"  routerLink="/home/{{menuItem.id}}">
+                  <a class="dropdown-item" *ngFor="let menuItem of categories"  routerLink="/category/{{menuItem.id}}">
                     <span>{{menuItem.title}}</span>
                   </a>
                 </div>
               </li>
-<!--              <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4" ngbDropdown *ngFor="let menuItem of heroes">-->
-
-<!--                <a routerLink="/detail/{{MenuItem}}">-->
-<!--                  <span class="nav-link dropdown-toggle" ngbDropdownToggle>{{menuItem}}</span>-->
-<!--                </a>-->
-<!--              </li>-->
 
               <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4">
                 <a class="nav-link" routerLink='/delivary'>{{'HEADER.ABOUTDELIVARY' | translate}}</a>

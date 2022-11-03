@@ -17,6 +17,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
+import { ProductDTO } from '../model/productDTO';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -182,6 +183,56 @@ export class AdminService {
         ];
 
         return this.httpClient.request<string>('delete',`${this.basePath}/api/Admin/${encodeURIComponent(String(productId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * GetProductById
+     *
+     * @param productId
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getProductById(productId: number, observe?: 'body', reportProgress?: boolean): Observable<ProductDTO>;
+    public getProductById(productId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ProductDTO>>;
+    public getProductById(productId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ProductDTO>>;
+    public getProductById(productId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (productId === null || productId === undefined) {
+            throw new Error('Required parameter productId was null or undefined when calling getProductById.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.accessToken) {
+            const accessToken = typeof this.configuration.accessToken === 'function'
+                ? this.configuration.accessToken()
+                : this.configuration.accessToken;
+            headers = headers.set('Authorization', 'Bearer ' + accessToken);
+        }
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'text/plain',
+            'application/json',
+            'text/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<ProductDTO>('get',`${this.basePath}/api/Admin/${encodeURIComponent(String(productId))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

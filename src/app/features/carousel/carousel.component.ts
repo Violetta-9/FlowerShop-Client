@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from "@angular/core";
 import {NgbCarousel, NgbCarouselConfig, NgbSlideEvent, NgbSlideEventSource} from "@ng-bootstrap/ng-bootstrap";
-import {ProductImageService} from "../../core/services/flower-shop";
+import {ProductImageDTO, ProductImageService} from "../../core/services/flower-shop";
 
 
 @Component({
@@ -9,19 +9,24 @@ import {ProductImageService} from "../../core/services/flower-shop";
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit{
-  @Input() productId: bigint;
+  @Input() productId: number;
+  images: ProductImageDTO[];
   public constructor(public productoImageService:ProductImageService){
 
   }
   ngOnInit(): void {
 this.getImage();
+console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
   }
   showNavigationArrows = true;
   showNavigationIndicators = true;
-  images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  image = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
 
+  // @ts-ignore
   private getImage() {
-    this.productoImageService.getImagesByProductId(1)
+
+    this.productoImageService.getImagesByProductId(this.productId).subscribe(
+      im=>this.images=im);
   }
 }

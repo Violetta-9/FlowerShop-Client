@@ -6,3 +6,4 @@ export * from './categoriesDTO';
 export * from './loginDTO';
 export * from './productDTO';
 export * from './productImageDTO';
+export * from './productTitleAndIdDTO';

@@ -10,9 +10,7 @@
  * Do not edit the class manually.
  */
 
-export interface ProductDTO { 
-    id?: number;
+export interface ProductTitleAndIdDTO { 
+    productId?: number;
     title?: string;
-    description?: string;
-    price?: number;
 }

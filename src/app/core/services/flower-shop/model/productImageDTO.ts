@@ -11,5 +11,6 @@
  */
 
 export interface ProductImageDTO { 
-    path?: string;
+    fileName?: string;
+    absoluteUri?: string;
 }

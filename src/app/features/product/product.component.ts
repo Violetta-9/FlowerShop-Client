@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {ProductDTO, ProductService} from "../../core/services/flower-shop";
@@ -11,23 +11,12 @@ import {shouldBeautify} from "@angular-devkit/build-angular/src/utils/environmen
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit{
-  products: ProductDTO[];
-  public constructor(private route: ActivatedRoute,
-                     private productService:ProductService,
-                     private location: Location) {
-  }
+  @Input() public product: ProductDTO = {};
+
   ngOnInit(): void {
-    this.getProductById();
+    console.log(this.product.price)
   }
 
-
-  private getProductById() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('I'+id);
-    this.productService.getProductByCategoryId(id).subscribe(product => {
-      this.products=product
-    });
-  }
 
 
 }
