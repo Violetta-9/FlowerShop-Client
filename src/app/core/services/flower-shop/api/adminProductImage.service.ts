@@ -100,7 +100,7 @@ export class AdminProductImageService {
         const canConsumeForm = this.canConsumeForm(consumes);
 
         let formParams: { append(param: string, value: any): void; };
-        let useForm = false;
+        let useForm = canConsumeForm;
         let convertFormParamsToString = false;
         if (useForm) {
             formParams = new FormData();

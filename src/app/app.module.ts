@@ -38,7 +38,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HighlightDirective} from "./directives/highlightDirective";
 import {MatIconModule} from "@angular/material/icon";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { ProductListComponent } from './features/product-list/product-list.component';
@@ -46,6 +46,13 @@ import {Location} from '@angular/common';
 import { ProductListForAdminComponent } from './features/product-list-for-admin/product-list-for-admin.component';
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import {ObjectToArrayPipe} from "./core/pipe/ObjectToArray";
+import { InputBoxComponent } from './features/input-box/input-box.component';
+import {MaterialFileInputModule} from "ngx-material-file-input";
+import {MatSelectModule} from "@angular/material/select";
+import { AddProductComponent } from './features/add-product/add-product.component';
+import { UpdateProductComponent } from './features/update-product/update-product.component';
+import { ComfirmDeletComponent } from './features/comfirm-delet/comfirm-delet.component';
+;
 
 
 
@@ -65,7 +72,12 @@ import {ObjectToArrayPipe} from "./core/pipe/ObjectToArray";
     HighlightDirective,
     ProductListComponent,
     ProductListForAdminComponent,
-    ObjectToArrayPipe
+    ObjectToArrayPipe,
+    InputBoxComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    ComfirmDeletComponent,
+
 
   ],
   imports: [
@@ -76,6 +88,7 @@ import {ObjectToArrayPipe} from "./core/pipe/ObjectToArray";
     MatDialogModule,
     RegistrationModule,
     LoginModule,
+
     HttpClientModule,
     ToastrModule.forRoot(),
     ProductModule,
@@ -98,8 +111,11 @@ import {ObjectToArrayPipe} from "./core/pipe/ObjectToArray";
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+
     MatInputModule,
     MatButtonModule,
+    MaterialFileInputModule,
+    MatSelectModule,
 
   ],
   providers: [
