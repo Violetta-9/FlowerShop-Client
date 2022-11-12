@@ -50,7 +50,7 @@ productId:number
 
   find() {
  this.productId=Number(this.nameParagraph.nativeElement.textContent)
-    console.log( this.productId);
+    console.log("Admin"+this.productId);
     this.isCompled=true;
   }
 }

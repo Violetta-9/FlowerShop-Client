@@ -21,8 +21,9 @@
 
 </form>
   <button class="col-lg-3 ms-3" mat-raised-button color="primary" type="submit" (click)="find()">Найти</button>
+    <button class=" col-lg-3 mt-3 ms-3"  mat-raised-button color="primary" routerLink="/add-product">Добавтить</button>
   </div>
-  <div *ngIf="isCompled" class=" col-lg-8">
+  <div *ngIf="isCompled" class=" col-lg-4">
     <app-product-list-for-admin [productId]="productId">{{productId}}</app-product-list-for-admin>
   </div>
 </div>
