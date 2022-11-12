@@ -16,7 +16,7 @@ export class CarouselComponent implements OnInit{
   }
   ngOnInit(): void {
 this.getImage();
-console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj")
+console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj"+this.productId)
   }
   showNavigationArrows = true;
   showNavigationIndicators = true;
