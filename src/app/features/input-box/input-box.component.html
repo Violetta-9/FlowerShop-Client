@@ -1,0 +1,60 @@
+
+<form [formGroup]="detailsForm"  class="example-form forForm mt-3 ">
+  <mat-form-field class="example-full-width" [class.mat-form-field-invalid]="submitted && f.title?.errors" appearance="fill">
+    <mat-label>Название</mat-label>
+    <input formControlName="title"  matInput maxlength="257"  required>
+    <mat-error *ngIf="submitted && f.title?.errors?.required">Поле не может быть пустым
+    </mat-error>
+
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width" [class.mat-form-field-invalid]="submitted && f.description?.errors" appearance="fill">
+    <mat-label>Описание</mat-label>
+    <textarea formControlName="description"  matInput  maxlength="257" required></textarea>
+    <mat-error *ngIf="submitted && f.description?.errors?.required">Поле не может быть пустым
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" [class.mat-form-field-invalid]="submitted && f.price?.errors" appearance="fill">
+    <mat-label>Цена</mat-label>
+    <input formControlName="price"  matInput  type="number" maxlength="5" required>
+    <mat-error *ngIf="submitted && f.price?.errors?.required">Поле не может быть пустым
+    </mat-error>
+  </mat-form-field>
+<div class="col-lg-2">
+
+
+  <mat-form-field appearance="fill"[class.mat-form-field-invalid]="submitted && f.category?.errors">
+    <mat-label>Категория</mat-label>
+    <mat-select formControlName="productCategoryId" required >
+      <mat-option *ngFor="let category of categories" [value]="category.id"   >
+        {{category.title}}
+      </mat-option>
+      <mat-error *ngIf="submitted && f.category?.errors?.required">Поле не может быть пустым
+      </mat-error>
+    </mat-select>
+  </mat-form-field>
+
+
+
+  <mat-form-field *ngIf="title==''" [class.mat-form-field-invalid]="submitted && f.files?.errors" >
+    <ngx-mat-file-input formControlName="files"   placeholder="Выберите файл" multiple>
+      <mat-icon ngxMatFileInputIcon>folder</mat-icon>
+    </ngx-mat-file-input>
+    <mat-error *ngIf="submitted && f.files?.errors?.required">Поле не может быть пустым
+    </mat-error>
+  </mat-form-field>
+</div>
+
+</form>
+
+<div class=" images-block">
+  <div *ngFor="let image of data" class=" image-item "  >
+    <img [src]="image"  class="images" alt="Photo">
+  </div>
+</div>
+
+<button class="col-lg-3 mt-3 butt" mat-raised-button color="primary"(click)="change()">Загрузить</button>
+
+
