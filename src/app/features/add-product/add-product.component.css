@@ -1,0 +1,9 @@
+.forTitle{
+  font-family: "Marker Felt, fantasy" ;
+  font-weight: 600;
+  font-stretch: semi-expanded;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+
+}
