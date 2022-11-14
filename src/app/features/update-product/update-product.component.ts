@@ -34,7 +34,7 @@ export class UpdateProductComponent implements OnInit {
 
 
   update(event: any) {
-    console.log(event)
+    console.log("UP"+event)
     this.adminService.updateProductForm(this.productId,event.title,event.description,event.price,event.productCategoryId).subscribe(x=>console.log(x))
   }
 }
