@@ -77,6 +77,18 @@ export class HeaderComponent implements OnInit{
   public isHidden: boolean=false;
 
 
+  IsAuthorized() {
+   return localStorage.getItem('token');
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+this.IsNotAuthorized();
+  }
+
+  IsNotAuthorized() {
+    return !localStorage.getItem('token');
+  }
 }
 
 

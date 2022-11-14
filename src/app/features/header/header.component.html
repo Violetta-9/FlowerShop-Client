@@ -48,12 +48,15 @@
     </div>
   </div>
   <div class="me-2 mt-1 mt-md-2 d-inline-flex">
-    <a  class="icon-size icon-container me-4"  (click) = "openRegisterDialog ()">
+    <a   class="icon-size icon-container me-4"  (click) = "openRegisterDialog ()">
       <i class="fa fa-user-o"></i>
+      <div *ngIf="IsAuthorized()" class="status-circle"></div>
     </a>
-    <a  class="icon-size icon-container me-4"  (click) = "openLoginDialog ()">
+    <a *ngIf="IsNotAuthorized()" class="icon-size icon-container me-4"  (click) = "openLoginDialog ()">
       <i class="fa fa-sign-in"></i>
     </a>
+    <a  *ngIf="IsAuthorized()" class="me-4 icon-size"
+       (click)="logOut()"><i class=" fa fa-sign-out"></i></a>
   </div>
 </div>
 

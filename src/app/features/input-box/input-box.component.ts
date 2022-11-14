@@ -4,7 +4,7 @@ import {read} from "@popperjs/core";
 import {AdminService, Body, CategoriesDTO, ProductCategoruService, ProductDTO} from "../../core/services/flower-shop";
 import {EntityDetailsBaseComponent} from "../../core/components/abstractions/entity-details-base.component";
 import {fileCountValidator} from "../../shared/validators/fileCount.validator";
-import {Image} from "../../core/modals/Image";
+
 import {Observable, takeUntil} from "rxjs";
 import {FileInput} from "ngx-material-file-input";
 
@@ -35,12 +35,18 @@ export class InputBoxComponent extends EntityDetailsBaseComponent implements OnI
   }
 
   ngOnInit() {
+    let f;
+    if(this.title=='')
+      f= new FormControl('',[Validators.required] )
+    else
+      f= new FormControl('',[] )
+
     this.detailsForm = new FormGroup({
       title: new FormControl(this.title, Validators.required),
       description: new FormControl(this.description, Validators.required),
       price: new FormControl(this.price, Validators.required),
       productCategoryId: new FormControl(this.categoryId, Validators.required),
-      files: new FormControl('', [Validators.required])
+      files: f
     })
     this.detailsForm.get('files').valueChanges.subscribe((filesI: FileInput) =>{//Отслеживание изменений формы осуществляется через подписку на valueChanges
 
@@ -50,10 +56,7 @@ export class InputBoxComponent extends EntityDetailsBaseComponent implements OnI
       }
     })
   }
-  change() {
-    this.productAdd.emit(this.detailsForm.value);
 
-  }
 
   public show(file) {
     return new Observable(observer => {
@@ -74,7 +77,7 @@ export class InputBoxComponent extends EntityDetailsBaseComponent implements OnI
   }
 
   public saveInternal() {
-
+    this.productAdd.emit(this.detailsForm.value);
   }
 
 

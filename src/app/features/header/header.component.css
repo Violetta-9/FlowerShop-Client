@@ -123,6 +123,16 @@ a:hover,
   position: relative;
   transition: all 200ms linear;
 }
+.status-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: green;
+  border: 2px solid white;
+  top: 15px;
+  left: 12px;
+  position: absolute;
+}
 
 /* #Primary style
 ================================================== */
