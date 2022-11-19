@@ -17,7 +17,7 @@
                id="navbarSupportedContent">
             <ul class="navbar-nav mt-10px">
               <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4" ngbDropdown>
-                <span class="nav-link dropdown-toggle " ngbDropdownToggle>{{'HEADER.HOME'|translate}}</span>
+                <a class="nav-link " routerLink="/home">{{'HEADER.HOME'|translate}}</a>
 
               </li>
               <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4">
@@ -38,7 +38,7 @@
                 <a class="nav-link" routerLink='/delivary'>{{'HEADER.ABOUTDELIVARY' | translate}}</a>
               </li>
               <li class="nav-item ps-4 ps-md-0 ms-0 ms-md-4">
-                <a class="nav-link" href="#">{{'HEADER.CONTACT' | translate}}</a>
+                <a class="nav-link" routerLink="/contact">{{'HEADER.CONTACT' | translate}}</a>
               </li>
             </ul>
           </div>
@@ -48,9 +48,14 @@
     </div>
   </div>
   <div class="me-2 mt-1 mt-md-2 d-inline-flex">
-    <a   class="icon-size icon-container me-4"  (click) = "openRegisterDialog ()">
+
+    <a *ngIf="IsNotAuthorized()" class="icon-size icon-container me-4"  (click) = "openRegisterDialog ()">
+      <i class="fa fa-user-plus"></i>
+
+    </a>
+    <a *ngIf="IsAuthorized()" routerLink="/userPage" class="icon-size icon-container me-4"  >
       <i class="fa fa-user-o"></i>
-      <div *ngIf="IsAuthorized()" class="status-circle"></div>
+      <div  class="status-circle"></div>
     </a>
     <a *ngIf="IsNotAuthorized()" class="icon-size icon-container me-4"  (click) = "openLoginDialog ()">
       <i class="fa fa-sign-in"></i>
