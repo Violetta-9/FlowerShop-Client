@@ -5,9 +5,11 @@ import { HttpClient } from '@angular/common/http';
 
 import { AdminService } from './api/admin.service';
 import { AdminProductImageService } from './api/adminProductImage.service';
+import { OrderService } from './api/order.service';
 import { ProductService } from './api/product.service';
 import { ProductCategoruService } from './api/productCategoru.service';
 import { ProductImageService } from './api/productImage.service';
+import { ProductInCardService } from './api/productInCard.service';
 import { UserService } from './api/user.service';
 
 @NgModule({
@@ -17,9 +19,11 @@ import { UserService } from './api/user.service';
   providers: [
     AdminService,
     AdminProductImageService,
+    OrderService,
     ProductService,
     ProductCategoruService,
     ProductImageService,
+    ProductInCardService,
     UserService ]
 })
 export class ApiModule {
