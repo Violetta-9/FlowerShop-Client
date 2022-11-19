@@ -5,11 +5,10 @@
   [showNavigationIndicators]="showNavigationIndicators"
 >
   <ng-template ngbSlide *ngFor="let image of images">
-    <div class="picsum-img-wrapper">
-      <img [src]="image.absoluteUri" alt="Random slide" />
+    <div class="images">
+      <img class="i" [src]="image.absoluteUri" alt="Random slide" />
+      <p></p>
     </div>
-    <div class="carousel-caption">
 
-    </div>
   </ng-template>
 </ngb-carousel>

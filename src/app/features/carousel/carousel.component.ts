@@ -28,5 +28,9 @@ console.log("jjjjjjjjjjjjjjjjjjjjjjjjjj"+this.productId)
 
     this.productoImageService.getImagesByProductId(this.productId).subscribe(
       im=>this.images=im);
+
   }
+
+
+
 }
