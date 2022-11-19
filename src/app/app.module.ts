@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {HeaderModule} from "./features/header/header.component.module";
@@ -9,9 +9,9 @@ import {RegistrationModule} from "./features/registration/registration.component
 import {LoginModule} from "./features/login/login.component.module";
 import {
   AdminService,
-  BASE_PATH,
+  BASE_PATH, OrderService,
   ProductCategoruService,
-  ProductImageService,
+  ProductImageService, ProductInCardService,
   ProductService,
   UserService
 } from "./core/services/flower-shop";
@@ -42,7 +42,7 @@ import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-fi
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { ProductListComponent } from './features/product-list/product-list.component';
-import {Location} from '@angular/common';
+import {Location, registerLocaleData} from '@angular/common';
 import { ProductListForAdminComponent } from './features/product-list-for-admin/product-list-for-admin.component';
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import {ObjectToArrayPipe} from "./core/pipe/ObjectToArray";
@@ -52,12 +52,18 @@ import {MatSelectModule} from "@angular/material/select";
 import { AddProductComponent } from './features/add-product/add-product.component';
 import { UpdateProductComponent } from './features/update-product/update-product.component';
 import { ComfirmDeletComponent } from './features/comfirm-delet/comfirm-delet.component';
+import { UserAccountComponent } from './pages/user-account/user-account.component';
+import { ControlOrdersComponent } from './pages/control-orders/control-orders.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import localeRu from '@angular/common/locales/ru';
 ;
 
 
 
 
-
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -77,6 +83,8 @@ import { ComfirmDeletComponent } from './features/comfirm-delet/comfirm-delet.co
     AddProductComponent,
     UpdateProductComponent,
     ComfirmDeletComponent,
+    UserAccountComponent,
+    ControlOrdersComponent,
 
 
   ],
@@ -116,6 +124,9 @@ import { ComfirmDeletComponent } from './features/comfirm-delet/comfirm-delet.co
     MatButtonModule,
     MaterialFileInputModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatCheckboxModule,
 
   ],
   providers: [
@@ -123,11 +134,14 @@ import { ComfirmDeletComponent } from './features/comfirm-delet/comfirm-delet.co
       provide: BASE_PATH,
       useValue: environment.serverUri,
     },
+    { provide: LOCALE_ID, useValue: 'ru' },
+    OrderService,
     ProductService,
     ProductCategoruService,
     ProductImageService,
     AdminService,
 Location,
+    ProductInCardService,
 
 
     {

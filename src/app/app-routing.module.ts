@@ -12,6 +12,9 @@ import {ProductListComponent} from "./features/product-list/product-list.compone
 import {InputBoxComponent} from "./features/input-box/input-box.component";
 import {AddProductComponent} from "./features/add-product/add-product.component";
 import {UpdateProductComponent} from "./features/update-product/update-product.component";
+import {UserAccountComponent} from "./pages/user-account/user-account.component";
+import {ControlOrdersComponent} from "./pages/control-orders/control-orders.component";
+import {ContactsComponent} from "./pages/contacts/contacts.component";
 
 const routes: Routes = [
   { path: 'delivary', component: DeliveryComponent},
@@ -22,6 +25,9 @@ const routes: Routes = [
   { path: 'donotAccess', component: DonotAccessComponent},
   { path: 'input', component: InputBoxComponent},
   { path: 'add-product', component: AddProductComponent},
+  { path: 'userPage', component: UserAccountComponent},
+  { path: 'controlOrders', component: ControlOrdersComponent},
+  { path: 'contact', component: ContactsComponent},
   { path: 'update-product/:id', component: UpdateProductComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
