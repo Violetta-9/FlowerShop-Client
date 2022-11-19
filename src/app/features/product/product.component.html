@@ -1,5 +1,5 @@
 
-    <mat-card class="example-card ">
+    <mat-card [matBadgeHidden]="product.quentity==0"  matBadge="{{product.quentity}}"  matBadgeOverlap="true" class="demo-section" class="example-card ">
       <app-carousel-card [productId]="product.id" mat-card-image></app-carousel-card>
       <mat-card-header>
 
@@ -10,9 +10,18 @@
         {{product.description}}
 
       </mat-card-content>
-      <mat-card-content>
-        {{product.price | currency}}
-      </mat-card-content>
+      <div class=" col-lg-12 row">
+        <mat-card-content class="col-lg-4">
+          {{product.price}}
+        </mat-card-content>
+        <mat-card-content *ngIf="product.quentity==0" class="col-lg-8" >
+          <button  mat-raised-button color="primary" (click)="addProduct()">Добавить в корзину</button>
+        </mat-card-content>
+      </div>
+
+      <!--      <mat-card-content>-->
+<!--        {{product.price | currency}}-->
+<!--      </mat-card-content>-->
 
     </mat-card>
 

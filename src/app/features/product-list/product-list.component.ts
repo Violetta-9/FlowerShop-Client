@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {ProductDTO, ProductService} from "../../core/services/flower-shop";
 import {ActivatedRoute} from "@angular/router";
 
@@ -8,14 +8,18 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-products: ProductDTO[];
+  @Input() products: ProductDTO[];
+
   public constructor(private route: ActivatedRoute,
                      private productService:ProductService,
                     ) {
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-     this.getProductByCategoryId();
+
+     if(this.products==undefined){
+       this.getProductByCategoryId();
+     }
 
     });
 

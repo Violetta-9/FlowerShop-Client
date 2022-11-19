@@ -1,4 +1,13 @@
 .example-card {
   max-width: 400px;
   background-color: #F0F0F0;
+
 }
+.for-btn{
+  position: relative;
+}
+.right-btn{
+  position: absolute;
+}
+
+
