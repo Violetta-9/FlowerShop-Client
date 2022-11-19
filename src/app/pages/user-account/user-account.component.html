@@ -1,0 +1,4 @@
+
+<app-product-list *ngIf="products!=undefined" [products]="products"></app-product-list>
+<p class="forText">Сумма: {{getTotalSum() | currency: 'BYN'}}</p>
+<button  mat-raised-button color="primary" routerLink="/controlOrders">Заказать</button>
