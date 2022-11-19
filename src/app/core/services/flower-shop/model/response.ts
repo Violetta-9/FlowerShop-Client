@@ -10,11 +10,6 @@
  * Do not edit the class manually.
  */
 
-export interface ProductDTO { 
-    id?: number;
-    title?: string;
-    description?: string;
-    price?: number;
-    quentity?: number;
-    productCategoryId?: number;
+export interface Response { 
+    isSuccess?: boolean;
 }

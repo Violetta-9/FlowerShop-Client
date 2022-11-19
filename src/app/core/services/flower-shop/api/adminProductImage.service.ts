@@ -100,7 +100,7 @@ export class AdminProductImageService {
         const canConsumeForm = this.canConsumeForm(consumes);
 
         let formParams: { append(param: string, value: any): void; };
-        let useForm = canConsumeForm;
+        let useForm = false;
         let convertFormParamsToString = false;
         if (useForm) {
             formParams = new FormData();
@@ -110,8 +110,7 @@ export class AdminProductImageService {
 
         if (images) {
             images.forEach((element) => {
-                // @ts-ignore
-              formParams = formParams.append('images', <any>element) || formParams;
+                formParams = formParams.append('images', <any>element) as any || formParams;
             })
         }
 
